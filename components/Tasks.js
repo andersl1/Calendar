@@ -1,12 +1,16 @@
 import { StyleSheet, TouchableOpacity, Text, View, Alert } from 'react-native';
-// import Icon from 'react-native-ionicons';
-// import { Icon } from 'react-native-vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useState } from 'react';
 
+/* Tasks.js: a component for the tasks created by the user, each containing a time and a task
+*/
 const Tasks = (props) => {
+    /* useState hook to determine if task checkbox has been
+       pressed: initially set to false
+    */
     const [completed, setCompleted] = useState(false);
 
+    // test code: return 20
     const getChanged = () => {
         return 20;
     }
@@ -16,16 +20,18 @@ const Tasks = (props) => {
             <TouchableOpacity
                 style={styles.taskTab}
                 disabled={true}
-                onPress={() => {() => Alert.alert(getChanged())}}
+                onPress={() => {() => Alert.alert(getChanged())}} // alert 20 from getChanged when top tab pressed
             > 
                 <View style={{ flex: 4, flexDirection: 'row', justifyContent: 'flex-start', padding: 15 }}>
                     <MaterialIcons 
-                        name={completed ? "check-box" : "crop-square"}
+                        name={completed ? "check-box" : "crop-square"} // switch the icon based on completion state
                         size={28} 
                         style={{ alignSelf: 'center', color: 'black'}}
-                        onPress={() => setCompleted(completed ? false : true)}
+                        onPress={() => setCompleted(completed ? false : true)} // if pressed, set completed to true and vice versa
                     />
-                    <Text style={styles.taskFont}>
+                    <Text style={styles.taskFont}
+                        // props.title passed in from MainTab.js: this determines the text of the given task 
+                    >
                         {props.title}
                     </Text>
                 </View>
@@ -35,7 +41,9 @@ const Tasks = (props) => {
                         </Text>
                 </View>
                 <View style={styles.timeContainer}>
-                    <Text style={{ fontSize: 20, fontWeight: 'bold', fontFamily: 'sans-serif-light' }}>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold', fontFamily: 'sans-serif-light' }}
+                        // props.time passed in from MainTab.js: this determines the time of the given task
+                    >
                         {props.time}
                     </Text>
                 </View>
@@ -44,7 +52,8 @@ const Tasks = (props) => {
       );
 }
 
-//style={styles.container}
+/* Styles: container wraps all, taskTab wraps the text of the task, timeContainer wraps the time 'box'
+*/ 
 const styles = StyleSheet.create({
     container: {
         alignSelf: 'flex-end',

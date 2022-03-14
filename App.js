@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import BottomBar from './components/BottomBar.js'
 import MainTab from './components/MainTab.js';
 
+/* App.js: displays the components imported from ./components and displays them onto the screen
+*/
 export default function App() {
   return (
     <View style={styles.container}>
@@ -13,15 +15,13 @@ export default function App() {
   );
 }
 
+/* Styles: container wraps all
+*/
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'rgba(254,122,0,0.3)',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  font: {
-      fontSize: 25,
-      fontWeight: 'bold',
   },
 });
