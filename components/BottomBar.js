@@ -6,7 +6,7 @@ const BottomBar = () => {
         <View style={styles.container}>
             <TouchableOpacity 
                 style={styles.button}
-                onPress={() => Alert.alert("God dam lol that worked")}
+                onPress={() => Alert.alert("that worked")}
             >
                 <Text style={styles.buttonFont}>
                     Here we are
